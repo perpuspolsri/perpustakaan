@@ -1,0 +1,38 @@
+[
+	{
+		"user_id" : 1,
+		"username" : "admin",
+		"realname" : "Admin",
+		"passwd" : "$2y$10$5xyovyMSf5b2/zZNJDO5fe49vX/2Huad7jnKemuGTNSN9VCpjERH.",
+		"2fa" : null,
+		"email" : null,
+		"user_type" : null,
+		"user_image" : null,
+		"social_media" : null,
+		"last_login" : null,
+		"last_login_ip" : "127.0.0.1",
+		"groups" : "a:1:{i:0;s:1:\"1\";}",
+		"admin_template" : null,
+		"forgot" : null,
+		"input_date" : "2025-09-09",
+		"last_update" : "2025-09-09"
+	},
+	{
+		"user_id" : 2,
+		"username" : "wahid",
+		"realname" : "Wahid",
+		"passwd" : "$2y$10$5xyovyMSf5b2/zZNJDO5fe49vX/2Huad7jnKemuGTNSN9VCpjERH.",
+		"2fa" : null,
+		"email" : "",
+		"user_type" : 2,
+		"user_image" : "user_wahid.jpg",
+		"social_media" : null,
+		"last_login" : null,
+		"last_login_ip" : "127.0.0.1",
+		"groups" : "a:1:{i:0;s:1:\"2\";}",
+		"admin_template" : null,
+		"forgot" : null,
+		"input_date" : "2025-09-09",
+		"last_update" : "2025-10-14"
+	}
+]

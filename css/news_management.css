@@ -1,0 +1,217 @@
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    
+    /* Fallback for non-webkit browsers */
+    max-height: 4.5em; /* Approximately 3 lines */
+    line-height: 1.5em;
+}
+
+/* Alternative approach with better browser support */
+.multi-line-truncate {
+    position: relative;
+    max-height: 4.5em;
+    line-height: 1.5em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+/* Fallback for very old browsers */
+.multi-line-truncate::after {
+    content: "...";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-left: 4px;
+    background: linear-gradient(to right, transparent, white 20%);
+}
+
+/* Modern line-clamp with @supports */
+@supports (-webkit-line-clamp: 3) {
+    .multi-line-truncate::after {
+        display: none;
+    }
+}
+
+.tooltip {
+    position: relative;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+}
+
+.tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Smooth transitions */
+.card-border {
+    transition: all 0.3s ease;
+}
+
+.card-border:hover {
+    transform: translateY(-2px);
+}
+
+/* Loading animation */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Fade in animation for cards */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Status badges */
+.status-published {
+    background-color: #DCFCE7;
+    color: #166534;
+}
+
+.status-draft {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+/* Button hover effects */
+.btn-primary {
+    background-color: #F68537;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e77f35;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(246, 133, 55, 0.3);
+}
+
+/* Focus states for accessibility */
+.focus\:ring-2:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #F68537;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .relative.w-80 {
+        width: 100%;
+    }
+    
+    .flex.flex-wrap.items-center.justify-between {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .flex.flex-wrap.items-center.justify-between > * {
+        width: 100%;
+    }
+    
+    /* Mobile line-clamp adjustment */
+    .line-clamp-3 {
+        -webkit-line-clamp: 2;
+        max-height: 3em;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .card-border {
+        border-width: 2px;
+    }
+    
+    .status-published {
+        background-color: #000;
+        color: #fff;
+        border: 1px solid #fff;
+    }
+    
+    .status-draft {
+        background-color: #fff;
+        color: #000;
+        border: 1px solid #000;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .card-border,
+    .btn-primary,
+    .tooltip .tooltip-text {
+        transition: none;
+    }
+    
+    .animate-spin,
+    .animate-fade-in {
+        animation: none;
+    }
+    
+    .card-border:hover {
+        transform: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    .bg-\\[#F68537\\],
+    .bg-red-600 {
+        background-color: #000 !important;
+        color: #fff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .card-border {
+        break-inside: avoid;
+        border: 1px solid #000;
+    }
+}

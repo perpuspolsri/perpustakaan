@@ -1,0 +1,28 @@
+[
+	{
+		"loan_rules_id" : 1,
+		"member_type_id" : 1,
+		"collection_type_id" : 1,
+		"gmd_id" : 0,
+		"loan_limit" : 10,
+		"loan_periode" : 7,
+		"reborrow_limit" : 5,
+		"fine_each_day" : 1000,
+		"grace_periode" : 5,
+		"input_date" : "2025-09-13",
+		"last_update" : "2025-09-13"
+	},
+	{
+		"loan_rules_id" : 2,
+		"member_type_id" : 1,
+		"collection_type_id" : 2,
+		"gmd_id" : 4,
+		"loan_limit" : 5,
+		"loan_periode" : 5,
+		"reborrow_limit" : 5,
+		"fine_each_day" : 1000,
+		"grace_periode" : 5,
+		"input_date" : "2025-09-13",
+		"last_update" : "2025-09-13"
+	}
+]
