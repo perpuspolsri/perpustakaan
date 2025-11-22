@@ -1,4 +1,4 @@
-<div class="p-8 w-full h-svh pt-20">
+<div class="p-4 md:p-8 w-full h-[80vh] md:h-svh pt-20 md:pt-20">
     <div class="w-full h-full relative overflow-hidden bg-black rounded-md">
         <div
             id="hero-bg"
@@ -7,25 +7,8 @@
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
         </div>
 
-        <!-- <div class="absolute bottom-0 w-full flex justify-end z-100">
-            <div class="bg-white pt-3 ps-5 w-fit rounded-tl-md flex items-center gap-5 justify-end">
-                <div>
-                    <a href="/">
-                        <p class="m-0 p-0 font-semibold">Berita</p>
-                        <p class="truncate w-40 md:w-80" id="highlight-text">
-                            Loading...
-                        </p>
-                    </a>
-                </div>
-                <button
-                    class="bg-[var(--primary)] py-1.5 px-4 text-white rounded md:rounded-md text-center w-max ">
-                    Selengkapnya
-                </button>
-            </div>
-        </div> -->
-
         <div class="relative z-10 lg:ps-8 pt-20 lg:pt-8 flex flex-col lg:flex-row items-center lg:items-end justify-end lg:justify-between h-full">
-            <div class="px-3 flex flex-col gap-2 w-full lg:w-fit text-white mb-6 justify-center">
+            <div class="px-3 md:p-0 flex flex-col gap-2 w-full lg:w-fit text-white mb-6 justify-center">
                 <h1 class="text-white text-3xl md:text-5xl font-bold leading-1" data-aos="fade-up" data-aos-duration="1000">
                     UPT Perpustakaan<br />Politeknik Negeri Sriwijaya
                 </h1>
@@ -45,7 +28,7 @@
                     </a>
                 </div>
             </div>
-            <div class="w-full lg:w-fit flex justify-end">
+            <div class="w-full lg:w-fit hidden md:flex justify-end">
                 <div class="bg-white pt-3 ps-3 px-3 md:ps-5 md:px-0 w-fit rounded-tl-md flex items-center gap-5 justify-end" data-aos="slide-up" data-aos-offset="10" data-aos-delay="1500" data-aos-duration="500">
                     <div data-aos="slide-up" data-aos-offset="10">
                         <p class="m-0 p-0 font-semibold">Berita Terbaru</p>

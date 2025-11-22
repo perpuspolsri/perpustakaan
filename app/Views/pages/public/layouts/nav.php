@@ -131,7 +131,7 @@
 
     async function getEresourceLists() {
         try {
-            const response = await Api.get(`/api/public/contents/eresource`);
+            const response = await Api.get(`/api/public/contents/eresource_content`);
             const datas = response.data.content;
 
             const contentArr = datas.split(";")

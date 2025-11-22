@@ -37,7 +37,7 @@ function underscoreToCamelCase($string)
 
 ?>
 
-<div class="px-8 md:px-20 pt-40 w-full flex flex-col gap-4">
+<div class="px-4 md:px-20 pt-40 w-full flex flex-col gap-4">
     <div class="w-full">
         <h2 class="text-[var(--primary)] text-xl font-bold text-center">Informasi Layanan</h2>
         <p class="text-center">Layanan-layanan yang kami berikan</p>

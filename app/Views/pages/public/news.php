@@ -20,7 +20,7 @@
 
 <div class="w-full py-10 pt-7 px-8 lg:px-40 mt-5 mb-5">
     <div class="pb-20 w-full flex flex-col gap-4 font-gabarito">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="news-wrapper">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3" id="news-wrapper">
         </div>
     </div>
     <div id="pagination" class="flex justify-center items-center space-x-2">
@@ -33,7 +33,7 @@
     class NewsManager {
         constructor() {
             this.currentPage = 1;
-            this.perPage = 6;
+            this.perPage = 9;
             this.init();
         }
 
@@ -63,7 +63,7 @@
 
         async loadNews() {
             try {
-                const newsData = await Api.get(`/api/public/news?page=${this.currentPage}`);
+                const newsData = await Api.get(`/api/public/news?page=${this.currentPage}&perPage=${this.perPage}`);
                 const data = newsData.data;
 
                 if (data && data.length > 0) {
@@ -85,10 +85,11 @@
                 card.className = "p-5 border border-gray-300 flex flex-col gap-1 rounded-md card-border opacity-0";
 
                 card.innerHTML = `
-                    <p class="text-gray-600">${this.formatRelativeTimeCustom(news.last_update)}</p>
+                <a href="/news/${news.content_path}" class="text-[var(--primary)]">
                     <h2 class="text-lg font-bold text-[var(--primary)]">${news.content_title}</h2>
-                    <p class="text-gray-800 line-clamp-3 text-justify leading-5">${news.content_desc}</p>
-                    <a href="/news/${news.content_path}" class="text-[var(--primary)]">Selengkapnya</a>
+                    <h2 class="text-gray-800 line-clamp-1 leading-5">${news.content_desc}</h2>
+                    <p class="text-gray-600">${this.formatRelativeTimeCustom(news.last_update)}</p>
+                </a>
                 `;
 
                 newsWrapper.appendChild(card);

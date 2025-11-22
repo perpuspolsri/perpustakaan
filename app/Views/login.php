@@ -134,6 +134,17 @@
                         <i class="fas fa-spinner fa-spin"></i>
                     </span>
                 </button>
+
+                <button
+                    type="button"
+                    class="hidden w-full bg-base-blue hover:bg-base-hover text-white font-medium py-3 px-4 rounded-md transition duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                    id="resetBtn">
+                    <i class="fas fa-lock mr-2"></i>
+                    <span id="submitTextReset">Reset Password</span>
+                    <span id="loadingSpinnerReset" class="hidden ml-2">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </span>
+                </button>
             </div>
         </form>
 
@@ -223,7 +234,10 @@
             const submitBtn = document.getElementById('submitBtn');
             const submitText = document.getElementById('submitText');
             const loadingSpinner = document.getElementById('loadingSpinner');
+            const submitTextReset = document.getElementById('submitTextReset');
+            const loadingSpinnerReset = document.getElementById('loadingSpinnerReset');
             const alertMessage = document.getElementById('alertMessage');
+            const resetBtn = document.getElementById('resetBtn');
 
             let currentRole = 'member';
             selectRole(currentRole);
@@ -366,30 +380,69 @@
 
                     const data = await response.json();
 
-                    if (data.status === 'success') {
-                        localStorage.setItem('jwt_token', data.token);
-                        localStorage.setItem('user_role', role);
-                        localStorage.setItem('token_type', 'Bearer');
+                    if (data.message == "Default Password") {
+                        endpoint = '<?= base_url('api/auth/forgot-password') ?>';
+                        resetBtn.classList.remove("hidden")
+                        showAlert('Anda Belum Memiliki Password. Tekan Tombol Reset Password Untuk Membuat Password Baru');
 
-                        showAlert('Login berhasil! Mengarahkan...', 'success');
+                        payload = {
+                            email: data.data.email,
+                        };
 
-                        setTimeout(() => {
-                            if (role === 'admin') {
-                                window.location.href = '<?= base_url('admin/fines-management') ?>';
+                        resetBtn.addEventListener("click", async () => {
+                            resetBtn.disabled = true;
+                            loadingSpinnerReset.classList.remove('hidden');
+                            submitTextReset.textContent = 'Sedang Diproses ...';
+
+                            const response = await fetch(endpoint, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'X-Requested-With': 'XMLHttpRequest'
+                                },
+                                body: JSON.stringify(payload)
+                            });
+
+                            const data = await response.json();
+
+                            if (data.status == true) {
+                                showAlert(data.message, 'success');
                             } else {
-                                window.location.href = '<?= base_url('member/dashboard') ?>';
+                                showAlert(data.message, 'error');
                             }
-                        }, 1000);
+
+                            resetBtn.disabled = false;
+                            loadingSpinnerReset.classList.add('hidden');
+                            submitTextReset.textContent = "Reset Password";
+                            resetBtn.classList.add("hidden")
+                        })
 
                     } else {
-                        showAlert(data.message || 'Login gagal');
+                        if (data.status === 'success') {
+                            localStorage.setItem('jwt_token', data.token);
+                            localStorage.setItem('user_role', role);
+                            localStorage.setItem('token_type', 'Bearer');
 
-                        if (data.message?.includes('Username') || data.message?.includes('Member ID') || data.message?.includes('Invalid')) {
-                            showError('username', data.message);
-                        } else if (data.message?.includes('Password')) {
-                            showError('password', data.message);
+                            showAlert('Login berhasil! Mengarahkan...', 'success');
+
+                            setTimeout(() => {
+                                if (role === 'admin') {
+                                    window.location.href = '<?= base_url('admin/fines-management') ?>';
+                                } else {
+                                    window.location.href = '<?= base_url('member/dashboard') ?>';
+                                }
+                            }, 1000);
+                        } else {
+                            showAlert(data.message || 'Login gagal');
+
+                            if (data.message?.includes('Username') || data.message?.includes('Member ID') || data.message?.includes('Invalid')) {
+                                showError('username', data.message);
+                            } else if (data.message?.includes('Password')) {
+                                showError('password', data.message);
+                            }
                         }
                     }
+
                 } catch (error) {
                     console.error('Login error:', error);
                     showAlert('Terjadi kesalahan saat login. Silakan coba lagi.');

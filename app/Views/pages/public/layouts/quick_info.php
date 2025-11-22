@@ -1,7 +1,7 @@
-<div class="flex flex-col md:flex-row justify-center items-center w-full px-8 md:px-20 gap-8 pt-40">
+<div class="flex flex-col md:flex-row justify-center items-center w-full px-8 md:px-20 gap-8 pt-10 md:pt-40">
     <div class="w-full md:w-1/2 flex flex-col gap-3">
-        <h2 class="text-[var(--primary)] text-xl font-bold" data-aos="fade-up">Tentang Kami</h2>
-        <p class="text-justify leading-5" data-aos="slide-up">UPT Perpustakaan Politeknik Negeri Sriwijaya (Polsri) menjadi pusat informasi dan pengetahuan yang mendukung pendidikan, penelitian, dan pengabdian masyarakat melalui layanan modern dan mudah diakses. Dengan koleksi lengkap, sistem digital terintegrasi, serta fasilitas nyaman dan inklusif, kami berkomitmen menciptakan lingkungan belajar yang inspiratif dan terbuka bagi seluruh pengguna di era digital.</p>
+        <h2 class="text-[var(--primary)] text-xl font-bold" data-aos="fade-up" data-aos-offset="10">Tentang Kami</h2>
+        <p class="text-justify leading-5" data-aos="slide-up" data-aos-offset="10">UPT Perpustakaan Politeknik Negeri Sriwijaya (Polsri) menjadi pusat informasi dan pengetahuan yang mendukung pendidikan, penelitian, dan pengabdian masyarakat melalui layanan modern dan mudah diakses. Dengan koleksi lengkap, sistem digital terintegrasi, serta fasilitas nyaman dan inklusif, kami berkomitmen menciptakan lingkungan belajar yang inspiratif dan terbuka bagi seluruh pengguna di era digital.</p>
         <button class="bg-[var(--primary)] w-fit py-2 px-5 rounded text-white flex gap-3 justify-center" data-aos="zoom-in" data-aos-delay="200">
             <img src="img/icons/book-light.svg" alt="">
             <p class="font-bold">Selengkapnya</p>

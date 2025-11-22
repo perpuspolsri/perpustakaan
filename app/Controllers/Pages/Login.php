@@ -41,4 +41,9 @@ class Login extends BaseController
             return redirect()->to('member/dashboard');
         }
     }
+
+    public function resetPassword()
+    {
+        return view('reset_password');
+    }
 }

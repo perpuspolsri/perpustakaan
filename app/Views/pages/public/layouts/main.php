@@ -94,7 +94,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
-             once: true, // All elements will animate only once
+            once: true, // All elements will animate only once
         });
     </script>
 

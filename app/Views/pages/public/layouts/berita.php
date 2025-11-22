@@ -8,7 +8,7 @@
             <p class="text-gray-500">Selengkapnya</p>
         </a>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5" id="news-wrapper">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3" id="news-wrapper">
         <!-- <div class="p-5 border border-gray-300 flex flex-col gap-1 rounded-md">
             <p class="text-gray-600">Selasa, 15 Juli 2025</p>
             <h2 class="text-lg font-bold text-[var(--primary)]">Membangun Generasi Cerdas Dengan Budaya Literasi</h2>
@@ -48,7 +48,7 @@
                 filteredData = result.data.slice(0, 6)
                 filteredData.forEach(item => {
                     const card = document.createElement("div")
-                    card.className = "p-5 border border-gray-300 flex flex-col gap-1 rounded-md"
+                    card.className = "p-5 border border-gray-300 flex flex-col gap-1 rounded-md h-full transition-all duration-300 ease-in-out hover:shadow-lg"
 
                     const date = document.createElement("p")
                     date.className = "text-gray-600"
@@ -63,14 +63,15 @@
                     body.innerHTML = item.content_desc
 
                     const anchor = document.createElement("a")
+                    anchor.className = "h-full"
                     anchor.href = `/news/${item.content_path}`
 
-                    anchor.appendChild(card)
                     card.appendChild(title)
                     card.appendChild(body)
                     card.appendChild(date)
+                    anchor.appendChild(card)
 
-                    newsWrapper.appendChild(card)
+                    newsWrapper.appendChild(anchor)
                 });
             } else {}
         } catch (error) {

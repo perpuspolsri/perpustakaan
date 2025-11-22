@@ -16,6 +16,7 @@ $routes->get('/member-services', 'Home::memberServices');
 $routes->get('/pustaka-services', 'Home::pustakaServices');
 $routes->get('/magang-services', 'Home::magangServices');
 $routes->get('/login', 'Pages\Login::index');
+$routes->get('/reset-password', 'Pages\Login::resetPassword');
 $routes->get('/logout', 'Pages\Login::logout');
 
 $routes->group('admin', ['filter' => 'loginasadmin'], function ($routes) {
@@ -85,6 +86,8 @@ $routes->group("/api", static function ($routes) {
     // Auth
     $routes->group('auth', function ($routes) {
         $routes->post("login", "API\AuthController::login");
+        $routes->post("forgot-password", "API\AuthController::sendResetLink");
+        $routes->post("reset-password", "API\AuthController::reset");
         $routes->post("admin/login", "API\AuthController::adminLogin");
     });
 
