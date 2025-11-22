@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/opperpustakaan/public_html/
+    - /bin/cp -R * $DEPLOYPATH
