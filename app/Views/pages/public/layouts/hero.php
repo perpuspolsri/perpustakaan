@@ -27,7 +27,7 @@
         <div class="relative z-10 lg:ps-8 pt-20 lg:pt-8 flex flex-col lg:flex-row items-center lg:items-end justify-end lg:justify-between h-full">
             <div class="px-3 flex flex-col gap-2 w-full lg:w-fit text-white mb-6 justify-center">
                 <h1 class="text-white text-3xl md:text-5xl font-bold leading-1" data-aos="fade-up" data-aos-duration="1000">
-                    UPT Perpustakaan<br />Politeknik Negeri Sriwijaya (Testing Lagi Guys)
+                    UPT Perpustakaan<br />Politeknik Negeri Sriwijaya (Testing Lagi Guys Lagi)
                 </h1>
                 <p class="text-sm lg:text-base mb-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Pusat Informasi & Pengetahuan Politeknik Negeri Sriwijaya</p>
                 <div class="flex flex-col md:flex-row items-center gap-2 w-full">
