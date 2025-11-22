@@ -2,6 +2,7 @@
 
 namespace App\Filters;
 
+use App\Models\LandingPageContentModel;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
@@ -13,16 +14,24 @@ class IpFilter implements FilterInterface
     {
         // Daftar IP yang diizinkan
         $allowedIPs = [
-            '10.35.3.150',
-            "127.0.0.1",
-            "::1"
+            // '10.35.3.150',
+            // "127.0.0.1",
+            // "::1"
         ];
+
+        $eresourceModel = new LandingPageContentModel();
+        $eresource = $eresourceModel->select("content")->where("landing_page_content_id", "peminjaman_mandiri_ip")->findAll();
+        $eresourceSplit = explode(";", $eresource[0]["content"]);
+        foreach ($eresourceSplit as $i) {
+            $explode = explode("&", $i);
+            array_push($allowedIPs, $explode[count($explode) - 1]);
+        }
 
         $clientIP = $request->getIPAddress();
         log_message('error', 'Client IP: ' . $request->getIPAddress());
 
         if (!in_array($clientIP, $allowedIPs)) {
-            return redirect()->to("/member/access_denied");
+            return redirect()->to("/member/dashboard");
         }
     }
 

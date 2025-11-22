@@ -30,6 +30,8 @@ $routes->group('admin', ['filter' => 'loginasadmin'], function ($routes) {
     $routes->get('add-news-management/(:num)', 'Pages\AdminController::addNewsManagement/$1');
 
     $routes->get('content-management/(:segment)', 'Pages\AdminController::contentManagementDynamic/$1');
+
+    $routes->get('peminjaman-mandiri-ip', 'Pages\AdminController::peminjamanMandiriIP');
 });
 
 $routes->group('member', ['filter' => 'loginasadmin'], function ($routes) {

@@ -59,7 +59,7 @@ class AdminController extends BaseController
         $contentSliced = explode("-", $content);
 
         $layananModel = new LandingPageContentModel();
-        if($contentSliced[0] == "layanan") {
+        if ($contentSliced[0] == "layanan") {
             $file = "layanan";
             $layanan = $layananModel->select("landing_page_content_id")->where("landing_page_content_id", pathToUnderscore($content))->findAll();
         } else {
@@ -101,5 +101,14 @@ class AdminController extends BaseController
             'role' => 'admin',
         ];
         return view('pages/admin/kritik_saran', $data);
+    }
+
+    public function peminjamanMandiriIP()
+    {
+        $data = [
+            'title' => 'UPT Perpustakaan - Kritik & Saran',
+            'role' => 'admin',
+        ];
+        return view('pages/admin/peminjaman_mandiri_ip', $data);
     }
 }

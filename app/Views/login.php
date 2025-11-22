@@ -429,7 +429,7 @@
                                 if (role === 'admin') {
                                     window.location.href = '<?= base_url('admin/fines-management') ?>';
                                 } else {
-                                    window.location.href = '<?= base_url('member/dashboard') ?>';
+                                    window.location.href = '<?= base_url('member/loan') ?>';
                                 }
                             }, 1000);
                         } else {

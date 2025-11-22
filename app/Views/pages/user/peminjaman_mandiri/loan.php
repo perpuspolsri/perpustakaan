@@ -3,13 +3,13 @@
 <?= $this->section('content'); ?>
 
 <div class="w-full h-screen flex justify-center items-center text-t-gray">
-    <div class="w-1/2">
-        <div class="w-full border-t border-l border-r border-gray-300 p-5 rounded-t-md flex justify-between">
-            <div class="flex item-center justify-center gap-2">
+    <div class="w-2/3">
+        <div class="bg-gray-50 w-full border-t border-l border-r border-gray-300 p-5 rounded-t-md flex justify-between">
+            <div class="flex items-center justify-center gap-2">
                 <img src="/img/polsri.png" alt="" class="w-9 h-9">
                 <div class="flex flex-col">
                     <h1 class="text-t-gray font-semibold text-lg">UPT Perpustakaan POLSRI</h1>
-                    <p class="text-[#969696] text-[12px] -mt-1">Peminjaman Mandiri</p>
+                    <p class="text-[#969696] -mt-1">Peminjaman Mandiri</p>
                 </div>
             </div>
             <a href="<?= base_url('logout') ?>">
@@ -21,11 +21,11 @@
                 </button>
             </a>
         </div>
-        <div class="w-full border border-gray-300 p-5 py-10 rounded-b-md flex justify-center items-center">
+        <div class="w-full h-[60vh] border border-gray-300 p-5 py-10 rounded-b-md flex justify-center items-center">
             <div class="flex flex-col w-4/5 gap-4">
-                <div class="flex flex-col text-center mb-2">
-                    <h1 class="text-xl">Halo, <b><?= session()->get('realname'); ?>!</b></h1>
-                    <p class="text-sm">Masukkan kode buku untuk memulai peminjaman mandiri.</p>
+                <div class="flex flex-col mb-2">
+                    <h1 class="text-3xl">Halo, <b><?= session()->get('realname'); ?>!</b></h1>
+                    <p class="text-gray-600">Masukkan kode buku untuk memulai peminjaman mandiri.</p>
                     <h1 class="hidden" id="member_id"><?= session()->get('member_id'); ?></h1>
                 </div>
                 <div  class="flex flex-col gap-3">
@@ -36,7 +36,7 @@
 
                     <button onclick="createLoan()" class="bg-base-blue text-white py-3 px-5 rounded hover:bg-base-hover transition-all duration-200 hover:scale-105">Pinjam Sekarang</button>
                 </div>
-                <p class="text-sm text-center">© 2025 UPT Perpustakaan POLSRI. All rights reserved.</p>
+                <p class="text-center">© 2025 UPT Perpustakaan POLSRI. All rights reserved.</p>
             </div>
         </div>
     </div>

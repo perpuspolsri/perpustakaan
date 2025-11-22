@@ -49,6 +49,6 @@ class MemberController extends BaseController
             'role' => '',
             'css' => 'member_loan_management.css'
         ];
-        return view('pages/user/access_denied', $data);
+        return view('pages/user/peminjaman_mandiri/access_denied', $data);
     }
 }
