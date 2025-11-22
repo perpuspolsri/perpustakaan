@@ -50,8 +50,8 @@ function underscoreToCamelCase($string)
                 $i = 1;
             }
         ?>
-            <div class="border border-gray-300 w-[45%] md:w-[20%] flex flex-col rounded-md" data-aos="fade-up" data-aos-delay="<?= $i * 100 ?>">
-                <div class="bg-[url('/img/layanan-background-<?= $i ?>.jpg')] bg-cover bg-center w-full rounded-t" style="height: 240px;"></div>
+            <div class="border border-gray-300 w-full md:w-[20%] flex flex-col rounded-md" data-aos="fade-up" data-aos-delay="<?= $i * 100 ?>">
+                <div class="bg-[url('/img/layanan-background-<?= $i ?>.jpg')] bg-cover bg-center w-full h-40 md:h-64 rounded-t"></div>
                 <div class="p-3 flex flex-col gap-2">
                     <div>
                         <p class="font-semibold"><?= formatPathToTitle($item["landing_page_content_id"]) ?></p>
