@@ -1,4 +1,4 @@
-<div class="flex flex-col-reverse md:flex-row justify-center items-center w-full px-8 md:px-20 gap-8 pt-40">
+<div class="flex flex-col md:flex-row justify-center items-center w-full px-8 md:px-20 gap-8 pt-40">
     <div class="w-full md:w-1/2 flex flex-col gap-3">
         <h2 class="text-[var(--primary)] text-xl font-bold" data-aos="fade-up">Tentang Kami</h2>
         <p class="text-justify leading-5" data-aos="slide-up">UPT Perpustakaan Politeknik Negeri Sriwijaya (Polsri) menjadi pusat informasi dan pengetahuan yang mendukung pendidikan, penelitian, dan pengabdian masyarakat melalui layanan modern dan mudah diakses. Dengan koleksi lengkap, sistem digital terintegrasi, serta fasilitas nyaman dan inklusif, kami berkomitmen menciptakan lingkungan belajar yang inspiratif dan terbuka bagi seluruh pengguna di era digital.</p>
@@ -7,23 +7,27 @@
             <p class="font-bold">Selengkapnya</p>
         </button>
     </div>
-    <div class="w-full md:w-1/3 flex flex-col justify-between gap-9 md:gap-5">
-        <div class="flex items-center rounded-md border border-gray-300 p-5 relative w-full">
-            <div class="bg-[var(--primary)] w-1/4 h-full absolute left-0 bottom-0 rounded-l-md absolute">
-                <img src="/img/direktur.png" alt="" class="absolute bottom-0 left-0 w-full">
+    <div class="w-full md:w-1/3 flex flex-col justify-between gap-5">
+        <div class="flex w-full">
+            <div class="bg-[var(--primary)] w-1/4 left-0 bottom-0 rounded-l-md pt-3 flex items-end">
+                <img src="/img/direktur.png" alt="" class="bottom-0 left-0 w-full">
             </div>
-            <div class="ms-24">
-                <p class="font-semibold">Ir. Irawan Rusnadi, M.T.</p>
-                <p>Direktur Politeknik Negeri Sriwijaya</p>
+            <div class="flex items-center rounded-md border border-gray-300 p-5 relative w-full">
+                <div class="">
+                    <p class="font-semibold">Ir. Irawan Rusnadi, M.T.</p>
+                    <p class="text-sm">Direktur Politeknik Negeri Sriwijaya</p>
+                </div>
             </div>
         </div>
-        <div class="flex items-center rounded-md border border-gray-300 p-5 relative w-full">
-            <div class="bg-[var(--primary)] w-1/4 h-full absolute left-0 bottom-0 rounded-l-md absolute">
-                <img src="/img/kepala-perpus.png" alt="" class="absolute bottom-0 left-0 w-full">
+        <div class="flex w-full">
+            <div class="bg-[var(--primary)] w-1/4 left-0 bottom-0 rounded-l-md pt-3 flex items-end">
+                <img src="/img/kepala-perpus.png" alt="" class="bottom-0 left-0 w-full">
             </div>
-            <div class="ms-24">
-                <p class="font-semibold">Koryati, S.Pd., M.Pd</p>
-                <p class="text-wrap">Kepala Perpustakaan Politeknik Negeri Sriwijaya</p>
+            <div class="flex items-center rounded-md border border-gray-300 p-5 relative w-full">
+                <div>
+                    <p class="font-semibold">Koryati, S.Pd., M.Pd</p>
+                    <p class="text-wrap text-sm">Kepala Perpustakaan Politeknik Negeri Sriwijaya</p>
+                </div>
             </div>
         </div>
     </div>
