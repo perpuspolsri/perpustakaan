@@ -2,6 +2,7 @@
 
 namespace Config;
 
+use App\Filters\CorsFilter;
 use App\Filters\IpFilter;
 use App\Filters\JwtFilter;
 use App\Filters\JwtFilterAdmin;
@@ -34,14 +35,15 @@ class Filters extends BaseFilters
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
-        'cors'          => Cors::class,
+        // 'cors'          => Cors::class,
         'forcehttps'    => ForceHTTPS::class,
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
         'jwt'           => JwtFilter::class,
         'jwtadmin'      => JwtFilterAdmin::class,
         'ipfilter'      => IpFilter::class,
-        'loginasadmin'  => LoginAsAdmin::class
+        'loginasadmin'  => LoginAsAdmin::class,
+        'cors'          => CorsFilter::class
     ];
 
     /**
@@ -80,7 +82,7 @@ class Filters extends BaseFilters
      */
     public array $globals = [
         'before' => [
-            // 'honeypot',
+            'cors',
             // 'csrf',
             // 'invalidchars',
         ],
