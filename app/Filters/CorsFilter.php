@@ -11,6 +11,7 @@ class CorsFilter implements FilterInterface
     // DOMAIN yang diizinkan
     private $allowedOrigins = [
         'https://perpustakaan.polsri.ac.id',
+        "http://perpustakaan.local"
     ];
 
     public function before(RequestInterface $request, $arguments = null)
