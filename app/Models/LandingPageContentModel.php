@@ -13,6 +13,8 @@ class LandingPageContentModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = false;
     protected $allowedFields    = [];
+    protected $DBGroup = 'default';
+
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

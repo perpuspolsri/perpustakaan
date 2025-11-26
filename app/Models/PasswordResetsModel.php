@@ -14,6 +14,9 @@ class PasswordResetsModel extends Model
     protected $protectFields    = false;
     protected $allowedFields    = [];
 
+    protected $DBGroup = 'default';
+
+
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
 

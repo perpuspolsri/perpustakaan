@@ -1,0 +1,32 @@
+[
+    {
+        "nip": "062430701412",
+        "email": "koryati@mail.com",
+        "name": "Koryati, S.pd.,M.Pd.s",
+        "role": "Pustakawan Senior",
+        "image": "http://localhost:8080/uploads/1763483618_3db93c5552deb24fddac.jpeg",
+        "medsos": "Koryati;koryati__;Koryati",
+        "input_date": "2025-11-11 03:11:32",
+        "last_update": "2025-11-18 23:33:38"
+    },
+    {
+        "nip": "34324",
+        "email": "trisni@mail.com",
+        "name": "Trisni Handayani, S.E.",
+        "role": "Pustakawan",
+        "image": "http://localhost:8080/uploads/1763483636_3538a2e9c8fffaf0eb38.png",
+        "medsos": "trisni;trisni;trisni",
+        "input_date": "2025-11-11 03:13:31",
+        "last_update": "2025-11-18 23:33:56"
+    },
+    {
+        "nip": "343241",
+        "email": "dyah@mail.com",
+        "name": "Dyah Ayu Suriptiani, S.Hum",
+        "role": "Pustakawan",
+        "image": "http://localhost:8080/uploads/1763483654_4a1adf6a5e8a5b61d683.jpg",
+        "medsos": "dyah;dyah;dyah",
+        "input_date": "2025-11-11 03:13:31",
+        "last_update": "2025-11-18 23:34:14"
+    }
+]

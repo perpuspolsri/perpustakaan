@@ -6,6 +6,8 @@ use CodeIgniter\Database\Migration;
 
 class CreateContentTable extends Migration
 {
+    protected $DBGroup = 'opac';
+
     public function up()
     {
         $this->forge->addField([

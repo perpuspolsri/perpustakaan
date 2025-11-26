@@ -14,6 +14,9 @@ class MemberModel extends Model
     protected $protectFields    = false;
     protected $allowedFields    = [];
 
+    protected $DBGroup = 'opac';
+
+
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
 

@@ -7,6 +7,8 @@ use CodeIgniter\Database\RawSql;
 
 class CreateLoanTable extends Migration
 {
+    protected $DBGroup = 'opac';
+
     public function up()
     {
         $this->forge->addField([

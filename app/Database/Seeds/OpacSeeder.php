@@ -4,16 +4,20 @@ namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
 
-class LibrarySeeder extends Seeder
+class Opac extends Seeder
 {
-    protected $DBGroup = 'default';
+    protected $DBGroup = 'opac';
     public function run()
     {
         // Path ke file JSON
         $tables = [
-            "landing_page_content",
-            "kritik_saran",
-            "staff",
+            // "content",
+            // "biblio",
+            // "item",
+            // "loan",
+            // "member",
+            // "mst_loan_rules",
+            // "user"
         ];
 
         foreach ($tables as $table) {

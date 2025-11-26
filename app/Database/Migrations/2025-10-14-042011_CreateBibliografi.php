@@ -7,6 +7,8 @@ use \CodeIgniter\Database\RawSql;
 
 class CreateBiblioTable extends Migration
 {
+    protected $DBGroup = 'opac';
+
     public function up()
     {
         $this->forge->addField([

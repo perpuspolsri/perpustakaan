@@ -6,13 +6,14 @@ use CodeIgniter\Model;
 
 class BiblioModel extends Model
 {
-     protected $table            = 'biblio';
+    protected $table            = 'biblio';
     protected $primaryKey       = 'biblio_id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = false;
     protected $allowedFields    = [];
+    protected $DBGroup = 'opac';
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

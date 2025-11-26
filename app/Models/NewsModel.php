@@ -13,6 +13,8 @@ class NewsModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = false;
     protected $allowedFields    = [];
+    protected $DBGroup = 'opac';
+
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
