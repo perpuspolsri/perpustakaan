@@ -145,4 +145,49 @@ class LoanModel extends Model
             ->orderby("due_date", "DESC")
             ->paginate($perPage, 'default', $page);
     }
+
+    // Cron
+    public function getAllFinesCronHP($orderBy, $direction)
+    {
+        $date = date('Y-m-d');
+        return $this->select("loan.loan_id, member.member_id, member.member_name, member.member_phone, member.member_email, loan.item_code, biblio.title, loan.loan_date, loan.due_date, DATEDIFF(CURDATE(), loan.due_date) AS 'total_hari', (DATEDIFF(CURDATE(), loan.due_date) * mst_loan_rules.fine_each_day) AS 'total_denda'")
+            ->join("member", "member.member_id = loan.member_id", "left")
+            ->join("item", "item.item_code = loan.item_code", "left")
+            ->join("biblio", "biblio.biblio_id = item.biblio_id", "left")
+            ->join("(SELECT member_type_id, MAX(fine_each_day) AS fine_each_day FROM mst_loan_rules GROUP BY member_type_id) AS mst_loan_rules", "mst_loan_rules.member_type_id = member.member_type_id", "left")
+            ->where('loan.is_lent', 1)
+            ->where('loan.is_return', 0)
+            ->where("TO_DAYS(due_date) <", "TO_DAYS('$date')", false)
+            ->orderby($orderBy, $direction)
+            ->findAll();
+    }
+
+    public function getAllFinesCronH($orderBy, $direction)
+    {
+        $date = date('Y-m-d');
+        return $this->select("loan.loan_id, member.member_id, member.member_name, member.member_phone, member.member_email, loan.item_code, biblio.title, loan.loan_date, loan.due_date, DATEDIFF(CURDATE(), loan.due_date) AS 'total_hari', (DATEDIFF(CURDATE(), loan.due_date) * mst_loan_rules.fine_each_day) AS 'total_denda'")
+            ->join("member", "member.member_id = loan.member_id", "left")
+            ->join("item", "item.item_code = loan.item_code", "left")
+            ->join("biblio", "biblio.biblio_id = item.biblio_id", "left")
+            ->join("(SELECT member_type_id, MAX(fine_each_day) AS fine_each_day FROM mst_loan_rules GROUP BY member_type_id) AS mst_loan_rules", "mst_loan_rules.member_type_id = member.member_type_id", "left")
+            ->where('loan.is_lent', 1)
+            ->where('loan.is_return', 0)
+            ->where("TO_DAYS(due_date) =", "TO_DAYS('$date')", false)
+            ->orderby($orderBy, $direction)
+            ->findAll();
+    }
+    public function getAllFinesCronHM($orderBy, $direction)
+    {
+        $date = date('Y-m-d');
+        return $this->select("loan.loan_id, member.member_id, member.member_name, member.member_phone, member.member_email, loan.item_code, biblio.title, loan.loan_date, loan.due_date, DATEDIFF(CURDATE(), loan.due_date) AS 'total_hari', (DATEDIFF(CURDATE(), loan.due_date) * mst_loan_rules.fine_each_day) AS 'total_denda'")
+            ->join("member", "member.member_id = loan.member_id", "left")
+            ->join("item", "item.item_code = loan.item_code", "left")
+            ->join("biblio", "biblio.biblio_id = item.biblio_id", "left")
+            ->join("(SELECT member_type_id, MAX(fine_each_day) AS fine_each_day FROM mst_loan_rules GROUP BY member_type_id) AS mst_loan_rules", "mst_loan_rules.member_type_id = member.member_type_id", "left")
+            ->where('loan.is_lent', 1)
+            ->where('loan.is_return', 0)
+            ->where("TO_DAYS(due_date) =", "TO_DAYS('$date') + 1", false)
+            ->orderby($orderBy, $direction)
+            ->findAll();
+    }
 }

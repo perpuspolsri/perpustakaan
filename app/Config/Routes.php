@@ -43,6 +43,10 @@ $routes->group('member', ['filter' => 'loginasadmin'], function ($routes) {
 
 // API
 $routes->group("/api", static function ($routes) {
+    $routes->get("cron/fines/hp", "API\NotificationController::getHP");
+    $routes->get("cron/fines/h", "API\NotificationController::getH");
+    $routes->get("cron/fines/hm", "API\NotificationController::getHM");
+
     // Admin
     $routes->group('admin', ['filter' => 'jwtadmin'], function ($routes) {
         // Fines
@@ -112,4 +116,5 @@ $routes->group("/api", static function ($routes) {
         // Kritik Saran
         $routes->post("kritiksaran", "API\KritikSaranController::create");
     });
+
 });
