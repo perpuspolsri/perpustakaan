@@ -47,8 +47,9 @@ $routes->group('member', ['filter' => 'loginasadmin'], function ($routes) {
     $routes->get('loan', 'Pages\MemberController::loan', ['filter' => "kiosk"]);
 });
 
-$routes->group("loan", static function ($routes) {
-    $routes->get("login", "Pages\LoanController::login");
+$routes->get("loan/login", "Pages\LoanController::login");
+$routes->group("loan", ['filter' => 'loginasadmin'], function ($routes) {
+    $routes->get("/", "Pages\LoanController::login");
 });
 // API
 $routes->group("/api", static function ($routes) {
