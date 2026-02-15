@@ -40,7 +40,7 @@
     <div class="bg-white p-8 rounded-lg border border-gray-300 w-full md:w-1/3 flex flex-col gap-5">
         <a href="/">
             <div class="w-full flex items-center gap-3">
-                <img src="/img/polsri.png" alt="" class="w-10 h-10">
+                <img src="./img/polsri.png" alt="" class="w-10 h-10">
                 <h1 class="text-lg md:text-2xl font-bold ">UPT Perpustakaan POLSRI</h1>
             </div>
         </a>

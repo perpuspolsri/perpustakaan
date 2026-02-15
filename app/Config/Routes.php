@@ -19,7 +19,13 @@ $routes->get('/login', 'Pages\Login::index');
 $routes->get('/reset-password', 'Pages\Login::resetPassword');
 $routes->get('/logout', 'Pages\Login::logout');
 
+$routes->get('/kiosk/activate', 'API\Services\KioskActivator::activate');
+
 $routes->group('admin', ['filter' => 'loginasadmin'], function ($routes) {
+    $routes->get("kiosk/generate", function () {
+        echo bin2hex(random_bytes(32));
+    });
+
     $routes->get('fines-management', 'Pages\AdminController::finesManagement');
     $routes->get('news-management', 'Pages\AdminController::newsManagement');
     $routes->get('reminder', 'Pages\AdminController::reminder');
@@ -38,9 +44,12 @@ $routes->group('member', ['filter' => 'loginasadmin'], function ($routes) {
     $routes->get('dashboard', 'Pages\MemberController::index');
     $routes->get('peminjaman', 'Pages\MemberController::peminjaman');
     $routes->get('denied', 'Pages\MemberController::accessDenied');
-    $routes->get('loan', 'Pages\MemberController::loan', ['filter' => "ipfilter"]);
+    $routes->get('loan', 'Pages\MemberController::loan', ['filter' => "kiosk"]);
 });
 
+$routes->group("loan", static function ($routes) {
+    $routes->get("login", "Pages\LoanController::login");
+});
 // API
 $routes->group("/api", static function ($routes) {
     $routes->get("cron/fines/hp", "API\NotificationController::getHP");
@@ -49,6 +58,7 @@ $routes->group("/api", static function ($routes) {
 
     // Admin
     $routes->group('admin', ['filter' => 'jwtadmin'], function ($routes) {
+
         // Fines
         $routes->get("fines", "API\FinesController::index");
         $routes->get("fines/reminder", "API\FinesController::reminder");
@@ -116,5 +126,4 @@ $routes->group("/api", static function ($routes) {
         // Kritik Saran
         $routes->post("kritiksaran", "API\KritikSaranController::create");
     });
-
 });

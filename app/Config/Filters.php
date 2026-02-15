@@ -6,6 +6,7 @@ use App\Filters\CorsFilter;
 use App\Filters\IpFilter;
 use App\Filters\JwtFilter;
 use App\Filters\JwtFilterAdmin;
+use App\Filters\KioskFilter;
 use App\Filters\LoginAsAdmin;
 use CodeIgniter\Config\Filters as BaseFilters;
 use CodeIgniter\Filters\Cors;
@@ -43,7 +44,8 @@ class Filters extends BaseFilters
         'jwtadmin'      => JwtFilterAdmin::class,
         'ipfilter'      => IpFilter::class,
         'loginasadmin'  => LoginAsAdmin::class,
-        'cors'          => CorsFilter::class
+        'cors'          => CorsFilter::class,
+        'kiosk'         => KioskFilter::class,
     ];
 
     /**

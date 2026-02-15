@@ -50,7 +50,7 @@ class LoanModel extends Model
     public function getAllFines($perPage, $page, $orderBy, $direction)
     {
         $date = date('Y-m-d');
-        return $this->select("loan.loan_id, member.member_id, member.member_name, member.member_phone, member.member_email, loan.item_code, biblio.title, loan.loan_date, loan.due_date, DATEDIFF(CURDATE(), loan.due_date) AS 'days_total', (DATEDIFF(CURDATE(), loan.due_date) * mst_loan_rules.fine_each_day) AS 'fine_total'")
+        return $this->select("loan.loan_id, member.member_id, member.member_name, member.member_phone, member.member_email, loan.item_code, biblio.title, loan.loan_date, loan.due_date, DATEDIFF(CURDATE(), loan.due_date) AS 'days_total', (DATEDIFF(CURDATE(), loan.due_date) * 1000) AS 'fine_total'")
             ->join("member", "member.member_id = loan.member_id", "left")
             ->join("item", "item.item_code = loan.item_code", "left")
             ->join("biblio", "biblio.biblio_id = item.biblio_id", "left")
@@ -80,7 +80,7 @@ class LoanModel extends Model
     public function getFineById($id)
     {
         $date = date('Y-m-d');
-        return $this->select("loan.loan_id, loan.member_id, member.member_name, member.member_phone, member.member_email, loan.item_code, biblio.title, loan.loan_date, loan.due_date, DATEDIFF(CURDATE(), loan.due_date) AS 'days_total', (DATEDIFF(CURDATE(), loan.due_date) * mst_loan_rules.fine_each_day) AS 'fine_total'")
+        return $this->select("loan.loan_id, loan.member_id, member.member_name, member.member_phone, member.member_email, loan.item_code, biblio.title, loan.loan_date, loan.due_date, DATEDIFF(CURDATE(), loan.due_date) AS 'days_total', (DATEDIFF(CURDATE(), loan.due_date) * 1000) AS 'fine_total'")
             ->join("member", "member.member_id = loan.member_id", "left")
             ->join("item", "item.item_code = loan.item_code", "left")
             ->join("biblio", "biblio.biblio_id = item.biblio_id", "left")
@@ -95,7 +95,7 @@ class LoanModel extends Model
     public function search($perPage, $page, $orderBy, $direction, $memberId)
     {
         $date = date('Y-m-d');
-        return $this->select("loan.loan_id, loan.member_id, member.member_name, member.member_phone, member.member_email, loan.item_code, biblio.title, loan.loan_date, loan.due_date, DATEDIFF(CURDATE(), loan.due_date) AS 'days_total', (DATEDIFF(CURDATE(), loan.due_date) * mst_loan_rules.fine_each_day) AS 'fine_total'")
+        return $this->select("loan.loan_id, loan.member_id, member.member_name, member.member_phone, member.member_email, loan.item_code, biblio.title, loan.loan_date, loan.due_date, DATEDIFF(CURDATE(), loan.due_date) AS 'days_total', (DATEDIFF(CURDATE(), loan.due_date) * 1000) AS 'fine_total'")
             ->join("member", "member.member_id = loan.member_id", "left")
             ->join("item", "item.item_code = loan.item_code", "left")
             ->join("biblio", "biblio.biblio_id = item.biblio_id", "left")
@@ -117,7 +117,7 @@ class LoanModel extends Model
     public function getFinesByMemberId($perPage, $page, $memberId)
     {
         $date = date('Y-m-d');
-        return $this->select("loan.loan_id, loan.member_id, member.member_name, member.member_phone, member.member_email, loan.item_code, biblio.title, loan.loan_date, loan.due_date, DATEDIFF(CURDATE(), loan.due_date) AS 'days_total', (DATEDIFF(CURDATE(), loan.due_date) * mst_loan_rules.fine_each_day) AS 'fine_total'")
+        return $this->select("loan.loan_id, loan.member_id, member.member_name, member.member_phone, member.member_email, loan.item_code, biblio.title, loan.loan_date, loan.due_date, DATEDIFF(CURDATE(), loan.due_date) AS 'days_total', (DATEDIFF(CURDATE(), loan.due_date) * 1000) AS 'fine_total'")
             ->join("member", "member.member_id = loan.member_id", "left")
             ->join("item", "item.item_code = loan.item_code", "left")
             ->join("biblio", "biblio.biblio_id = item.biblio_id", "left")
@@ -150,7 +150,7 @@ class LoanModel extends Model
     public function getAllFinesCronHP($orderBy, $direction)
     {
         $date = date('Y-m-d');
-        return $this->select("loan.loan_id, member.member_id, member.member_name, member.member_phone, member.member_email, loan.item_code, biblio.title, loan.loan_date, loan.due_date, DATEDIFF(CURDATE(), loan.due_date) AS 'total_hari', (DATEDIFF(CURDATE(), loan.due_date) * mst_loan_rules.fine_each_day) AS 'total_denda'")
+        return $this->select("loan.loan_id, member.member_id, member.member_name, member.member_phone, member.member_email, loan.item_code, biblio.title, loan.loan_date, loan.due_date, DATEDIFF(CURDATE(), loan.due_date) AS 'total_hari', (DATEDIFF(CURDATE(), loan.due_date) * 1000) AS 'total_denda'")
             ->join("member", "member.member_id = loan.member_id", "left")
             ->join("item", "item.item_code = loan.item_code", "left")
             ->join("biblio", "biblio.biblio_id = item.biblio_id", "left")
@@ -165,7 +165,7 @@ class LoanModel extends Model
     public function getAllFinesCronH($orderBy, $direction)
     {
         $date = date('Y-m-d');
-        return $this->select("loan.loan_id, member.member_id, member.member_name, member.member_phone, member.member_email, loan.item_code, biblio.title, loan.loan_date, loan.due_date, DATEDIFF(CURDATE(), loan.due_date) AS 'total_hari', (DATEDIFF(CURDATE(), loan.due_date) * mst_loan_rules.fine_each_day) AS 'total_denda'")
+        return $this->select("loan.loan_id, member.member_id, member.member_name, member.member_phone, member.member_email, loan.item_code, biblio.title, loan.loan_date, loan.due_date, DATEDIFF(CURDATE(), loan.due_date) AS 'total_hari', (DATEDIFF(CURDATE(), loan.due_date) * 1000) AS 'total_denda'")
             ->join("member", "member.member_id = loan.member_id", "left")
             ->join("item", "item.item_code = loan.item_code", "left")
             ->join("biblio", "biblio.biblio_id = item.biblio_id", "left")
@@ -179,7 +179,7 @@ class LoanModel extends Model
     public function getAllFinesCronHM($orderBy, $direction)
     {
         $date = date('Y-m-d');
-        return $this->select("loan.loan_id, member.member_id, member.member_name, member.member_phone, member.member_email, loan.item_code, biblio.title, loan.loan_date, loan.due_date, DATEDIFF(CURDATE(), loan.due_date) AS 'total_hari', (DATEDIFF(CURDATE(), loan.due_date) * mst_loan_rules.fine_each_day) AS 'total_denda'")
+        return $this->select("loan.loan_id, member.member_id, member.member_name, member.member_phone, member.member_email, loan.item_code, biblio.title, loan.loan_date, loan.due_date, DATEDIFF(CURDATE(), loan.due_date) AS 'total_hari', (DATEDIFF(CURDATE(), loan.due_date) * 1000) AS 'total_denda'")
             ->join("member", "member.member_id = loan.member_id", "left")
             ->join("item", "item.item_code = loan.item_code", "left")
             ->join("biblio", "biblio.biblio_id = item.biblio_id", "left")
