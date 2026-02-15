@@ -4,6 +4,7 @@
         <p>Berikan kritik & saran untuk Perpustakaan Polsri</p>
     </div>
     <form class="flex flex-col w-full md:w-1/2 gap-4" id="form-kritik" method="post" action="">
+        <?= csrf_field() ?>
         <div class="flex flex-col">
             <label for="email">Email</label>
             <input type="email" name="email" id="email" required placeholder="ex: johndoe@mail.com" class="w-full bg-white border border-gray-300 rounded p-2">
