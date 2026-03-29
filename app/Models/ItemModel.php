@@ -45,4 +45,12 @@ class ItemModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getDetail($id)
+    {
+        return $this->select("item.item_code, biblio.title, biblio.image")
+            ->join("biblio", "biblio.biblio_id = item.biblio_id", "left")
+            ->where("item_code", $id)
+            ->first();
+    }
 }

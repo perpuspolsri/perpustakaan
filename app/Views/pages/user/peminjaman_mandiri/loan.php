@@ -28,7 +28,7 @@
                     <p class="text-gray-600">Masukkan kode buku untuk memulai peminjaman mandiri.</p>
                     <h1 class="hidden" id="member_id"><?= session()->get('member_id'); ?></h1>
                 </div>
-                <div  class="flex flex-col gap-3">
+                <div class="flex flex-col gap-3">
                     <div>
                         <label for="item_code">Kode Buku</label>
                         <input id="item_code" type="text" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-base-blue focus:border-transparent transition-all duration-200 mt-1" placeholder="Masukkan Kode Buku">

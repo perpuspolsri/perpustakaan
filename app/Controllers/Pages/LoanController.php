@@ -16,4 +16,14 @@ class LoanController extends BaseController
     {
         return view("pages/loan/pages/index");
     }
+
+    public function add()
+    {
+        return view("pages/loan/pages/confirm");
+    }
+
+    public function result()
+    {
+        return view("pages/loan/pages/result");
+    }
 }

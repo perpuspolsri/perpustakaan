@@ -28,6 +28,13 @@ class Login extends BaseController
         return view('logout_redirect');
     }
 
+    public function logoutloan()
+    {
+        session()->destroy();
+
+        return view('logout_redirect_loan');
+    }
+
     public function testSession()
     {
         return view('test_session');

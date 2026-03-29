@@ -12,6 +12,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <?php if (isset($css)) : ?>
+        <link rel="stylesheet" href="<?= base_url('css/loan.css') ?>">
+    <?php endif; ?>
 </head>
 
 <script>
@@ -35,6 +39,8 @@
 
 <body class="font-gabarito text-t-gray">
     <?= $this->renderSection('content') ?>
+
+    <script src="<?= base_url('js/apiHelper.js'); ?>"></script>
 </body>
 
 </html>

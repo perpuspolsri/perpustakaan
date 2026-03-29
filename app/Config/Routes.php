@@ -18,6 +18,7 @@ $routes->get('/magang-services', 'Home::magangServices');
 $routes->get('/login', 'Pages\Login::index');
 $routes->get('/reset-password', 'Pages\Login::resetPassword');
 $routes->get('/logout', 'Pages\Login::logout');
+$routes->get('/loan/logout', 'Pages\Login::logoutloan');
 
 $routes->get('/kiosk/activate', 'API\Services\KioskActivator::activate');
 
@@ -48,8 +49,10 @@ $routes->group('member', ['filter' => 'loginasadmin'], function ($routes) {
 });
 
 $routes->get("loan/login", "Pages\LoanController::login");
-$routes->group("loan", ['filter' => 'loginasadmin'], function ($routes) {
-    $routes->get("/", "Pages\LoanController::login");
+$routes->group("loan", ['filter' => 'loanauthorizationhandler'], function ($routes) {
+    $routes->get("/", "Pages\LoanController::index");
+    $routes->get("confirm/(:segment)", "Pages\LoanController::add/$1");
+    $routes->get("result/(:segment)", "Pages\LoanController::result/$1");
 });
 // API
 $routes->group("/api", static function ($routes) {
@@ -95,6 +98,7 @@ $routes->group("/api", static function ($routes) {
         $routes->get("fines/(:num)", "API\FinesController::getByMemberId/$1");
         $routes->get("loans/(:num)", "API\LoanController::getByMemberId/$1");
         $routes->post("loans", "API\LoanController::create");
+        $routes->get("loans/items/(:segment)", "API\ItemController::find/$1");
     });
 
     // Cron Job Email Service
